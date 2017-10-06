@@ -14,15 +14,12 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private Monster monsterInRoom;
-    private Item itemInRoom;
-    private Character jeff;
-    
+
     public Room(String description) 
     {
         this.description = description;
         exits = new HashMap<String, Room>();
         monsterInRoom = new Monster(100,1);
-        itemInRoom = new Item("Potion", 2);        
     }
     
     public Room(String description, String start) 
@@ -30,8 +27,6 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
         monsterInRoom = new Monster(100,1);
-        itemInRoom = new Item("Potion", 2);
-        jeff = new Character();
         
     }
     
@@ -43,28 +38,6 @@ public class Room
         
     }
     
-    public void setMonster(int hp, int damage) 
-    {
-    	monsterInRoom = new Monster(hp, damage);
-    }
-    
-    public Monster getMonster() {
-        return monsterInRoom;
-    }
-    
-    public Item getItem() {
-        return itemInRoom;
-    }
-    
-    public Character getCharacter() {
-        return jeff;
-    }
-    
-    // Temp shitty setup
-    public void setItem() {
-        itemInRoom = null;
-    }
-
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);

@@ -83,15 +83,6 @@ public class Game
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        } 
-        else if (commandWord == commandWord.FIGHT) {
-            return fight(currentRoom);
-        }
-        else if (commandWord == commandWord.LOOT) {
-            return loot(currentRoom);
-        }
-        else if (commandWord == commandWord.USE) {
-            return use(currentRoom);
         }
         return wantToQuit;
     }
@@ -105,25 +96,6 @@ public class Game
         parser.showCommands();
     }
     
-    private boolean fight(Room room) {
-        if(room.getMonster().getHp() <= 0) {
-            return true;
-        }
-        room.getCharacter().attack(room.getMonster());;
-        System.out.println("Monster has " + room.getMonster().getHp());
-        return false;
-    }
-    
-    private boolean loot(Room room) {
-        room.getCharacter().lootItem(room.getItem());
-        room.getCharacter().showInventory();
-        return false;
-    }
-    
-    private boolean use(Room room) {
-        room.getCharacter().useItem(room.getCharacter().getItemFromInventory(0));
-        return false;
-    }
 
     private void goRoom(Command command) 
     {
